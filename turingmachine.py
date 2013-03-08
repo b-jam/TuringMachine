@@ -78,7 +78,7 @@ def parse_args():
     
 def main():
     args = parse_args()
-    m = construct_machine('machine1.csv', args[0])
+    m = construct_machine(args[0], args[1])
     print m.run()
     
 if __name__ == '__main__':
