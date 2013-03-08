@@ -79,7 +79,8 @@ def parse_args():
 def main():
     args = parse_args()
     m = construct_machine(args[0], args[1])
-    print m.run()
+    output, length =  m.run()
+    print "Output: %s \nLength: %d" %(output, length)
     
 if __name__ == '__main__':
     main()
