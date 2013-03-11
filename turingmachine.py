@@ -38,8 +38,8 @@ class TuringMachine():
         symbol = output_str[0]
         position = 0
         while current_state != 'H':
-            print  ''.join(output_str).replace('B','_'), current_state
-            print " "*position + "^"
+            #print  ''.join(output_str).replace('B','_'), current_state
+            #print " "*position + "^"
             action, new_state = self.states[current_state].process(symbol)
             if action == 'L':
                 position -=1
