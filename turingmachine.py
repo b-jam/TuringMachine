@@ -11,7 +11,11 @@ class TuringState():
         self.actions[symbol] = (action, new_state)
         
     def process(self, reading):
-        action, new_state = self.actions[reading]
+        try:
+            action, new_state = self.actions[reading]
+        except KeyError:
+            print "State %s has no state for symbol %s" %(self.name, reading)
+            exit(1)
         return action, new_state
 
 
@@ -34,7 +38,7 @@ class TuringMachine():
         symbol = output_str[0]
         position = 0
         while current_state != 'H':
-            print  ''.join(output_str), current_state
+            print  ''.join(output_str).replace('B','_'), current_state
             print " "*position + "^"
             action, new_state = self.states[current_state].process(symbol)
             if action == 'L':
